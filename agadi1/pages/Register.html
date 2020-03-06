@@ -1,0 +1,208 @@
+﻿
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            font-family: arial;
+        }
+        /*sinup form*/
+        .form-signup {
+            display: block;
+            width: 700px;
+            height: 300px;
+            padding: 30px 20px 10px 20px;
+            margin: 0 auto;
+            margin-top: 30px;
+            margin-bottom: 60px;
+            border-radius: 10px;
+            font-size: 20px;
+        }
+
+            .form-signup input[type=submit]:hover {
+                text-decoration: underline;
+            }
+
+            .form-signup a {
+                text-decoration: none;
+                font-size: 14px;
+                margin-bottom: 20px;
+            }
+
+            .form-signup label {
+                margin-top: 0;
+                display: block;
+            }
+
+            .form-signup input {
+                border: none;
+                border-bottom: 2px solid #378cc0;
+                background: none;
+                color: darkgreen;
+                float: right;
+                margin-right: 5px;
+                width: 400px;
+            }
+
+            .form-signup textarea {
+                border: none;
+                border: 2px solid #378cc0;
+                background: #378cc0;
+                color: darkgreen;
+                float: right;
+                margin-right: 12px;
+            }
+
+            .form-signup input[type=submit] {
+                border: none;
+                background: black;
+                color: white;
+                font-weight: bold;
+                border-radius: 0px;
+                cursor: pointer;
+                padding: 5px 12px;
+                float: left;
+                margin-top: 10px;
+                display: block;
+                margin-right: 13px;
+                width: 100px;
+            }
+
+            .form-signup p {
+                display: block;
+                margin-top: 90px;
+                margin-right: -130px;
+                text-align: center;
+                color: red;
+                transition: .300ms ease-in-out all;
+                font-size: 14px;
+            }
+    </style>
+</head>
+<body>
+    <div style="background-color:lightskyblue; height:200px; color:black; text-align:center;">
+        <br /><br /><br /><br />
+        <h1> <strong>Register Now! </strong></h1>
+    </div>
+    <div class="form-signup" id="singup">
+        <form method="post">
+            <label for="firstname">First Name: <input type="text" class="fname" name="firstname" placeholder="Enter First Name"></label><br>
+            <label for="lastname">Last Name: <input type="text" class="lname" name="lastname" placeholder="Enter Last Name"></label><br>
+            <label for="email">Email: <input type="email" class="email" name="email" placeholder="Enter Email Address"></label><br>
+            <label for="password">Password: <input type="password" class="pwd" name="password" placeholder="Enter Password"></label><br>
+            <label for="confrm password">Confirm Password: <input type="password" class="conpwd" name="password" placeholder="Confirm Password"></label><br>
+            <input type="submit" name="submit" value="Submit">
+        </form>
+    </div><br /><br />
+    <script>
+        //onsubmit="return singup()"
+
+
+
+        function tc(a) {
+            var x = document.querySelector(a).value;
+            return x;
+        }
+        function msg(a) {
+            var x = document.querySelector(".emsg").innerHTML = a;
+            return x;
+        }
+        function msgb(a) {
+            var x = document.querySelector(".emsgb").innerHTML = a;
+            return x;
+        }
+        function size(a) {
+            var x = document.querySelector(a).value.length;
+            return x;
+        }
+        // show hide function
+        //var idhide=document.getElementById("singup");
+        function singu() {
+            var hide = document.querySelector(".form-login");
+
+            if (hide.classList[1] == "hidden") {
+                hide.classList.toggle("visible");
+            } else {
+                hide.classList.toggle("hidden");
+            }
+            console.log(hide.classList);
+            return hide;
+        }
+        // Sing up
+        function singup() {
+            if (tc(".fname") == null || tc(".fname") == "") {
+                window.alert("Please Enter First name");
+                return false;
+            }
+            if (tc(".lname") == null || tc(".lname") == "") {
+                window.alert("Please Enter Last name");
+                return false;
+            }
+            if (tc(".email") == null || tc(".email") == "") {
+                window.alert("Please Enter Email");
+                return false;
+            }
+            if (tc(".pwd") == null || tc(".pwd") == "") {
+                window.alert("Please Enter Password");
+                return false;
+            }
+            if (tc(".pwd") != tc(".conpwd")) {
+                window.alert("Password Miss match");
+                return false;
+            }
+            if (size(".pwd") <= 8) {
+                window.alert("Minimum Password length 8");
+                return false;
+            }
+            return true;
+        }
+
+
+        $(document).ready(function () {
+
+            // process the form
+            $('form').submit(function (event) {
+
+
+                if (singup()) {
+
+
+                    // get the form data
+                    // there are many ways to get this data using jQuery (you can use the class or id also)
+
+
+                    $firstname = $('input[name=firstname]').val();
+                    $lastname = $('input[name=lastname]').val();
+                    $email = $('input[name=email]').val();;
+                    $password = $('input[name=password]').val();
+
+                    //
+
+                    // process the form
+                    $.ajax({
+                        type: 'POST', // define the type of HTTP verb we want to use (POST for our form)
+                        url: 'regi.php', // the url where we want to POST
+                        data: 'firstname=' + $firstname + '&lastname=' + $lastname + '&email=' + $email + '&password=' + $password, // our data object
+                        dataType: 'html',// what type of data do we expect back from the server
+                        success: function (data) {
+                            console.log(data);
+                            $('#thanks').html(data);
+
+                            window.location.replace("#Thankyou");
+                            $('#thanks').show();
+                        }
+                    })
+                }
+                event.preventDefault();
+
+
+            });
+
+        });
+
+
+
+    </script>
+</body>
+

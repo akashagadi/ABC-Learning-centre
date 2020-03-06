@@ -1,0 +1,112 @@
+﻿
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <style>
+        /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+        
+
+        /* Set gray background color and 100% height */
+        .sidenav {
+            background-color: #f1f1f1;
+            height: 100%;
+            font-family:Verdana;
+        }
+
+        /* Set black background color, white text and some padding */
+        footer {
+            background-color: #555;
+            color: white;
+            padding: 15px;
+        }
+
+        /* On small screens, set height to 'auto' for sidenav and grid */
+        @media screen and (max-width: 767px) {
+            .sidenav {
+                height: auto;
+                padding: 15px;
+            }
+
+            .row.content {
+                height: auto;
+            }
+        }
+
+        {
+            box-sizing: border-box;
+        }
+
+        .column {
+            float: left;
+            width: 33.33%;
+            padding: 5px;
+        }
+
+        /* Clearfix (clear floats) */
+        .row::after {
+            content: "";
+            clear: both;
+            display: table
+    </style>
+</head>
+<body>
+    <div style="background-color:lightskyblue; height:200px; color:black; text-align:center;">
+        <br /><br /><br /><br />
+        <h1> <strong>Courses Offered  </strong></h1>
+    </div>
+    <div class="container-fluid" style="background-image:url(media/courseback.jpg);background-position: center;height:800px;style="font-family:Verdana" ;
+         background-repeat: no-repeat; background-size: cover;">
+        <div class="row content">
+            <div class="col-sm-3 sidenav">
+                <h3>Course Detail</h3>
+                <h3>
+                    <ul class="nav nav-pills nav-stacked">
+                        <li><a href="#javadetails">Java</a></li>
+                        <li><a href="#htmldetails">HTML</a></li>
+                        <li><a href="#netdetails">.Net</a></li>
+                    </ul><br>
+                </h3>
+                <h3>Course Schedule</h3>
+                <h3>
+                    <ul class="nav nav-pills nav-stacked">
+                        <li><a href="#javaschedule">Java</a></li>
+                        <li><a href="#htmlschedule">HTML</a></li>
+                        <li><a href="#netschedule">.Net</a></li>
+                    </ul><br>
+                </h3>
+            </div>
+
+            <div class="col-sm-9">
+                <p align="justify" style="color:rgb(0, 0, 0);font-size:30px">
+                    <b> As Mentioned below we offer 3 of the main grossing or running courses which will be really heplfule in the Placement process as  well.</b>
+                    <br /><br /><br />
+                    <ul align="justify" style="color:rgb(0, 0, 0);font-size:30px">
+                        <b>The  Three Courses which we Offer are</b>
+                        <li>JAVA</li>
+                        <li>HTML</li>
+                        <li>.NET</li>
+
+
+                    </ul>
+
+                    <br /><br /><br />
+                </p>
+                <div class="row">
+                    <div class="column">
+                        <img src="media/java-1.jpeg" style="width:100%">
+                    </div>
+                    <div class="column">
+                        <img src="media/html-1.jpeg" style="width:100%">
+                    </div>
+                    <div class="column">
+                        <img src="media/new .net.png" style="width:100%">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
